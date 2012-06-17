@@ -1,0 +1,44 @@
+security:
+    role_hierarchy:
+        ROLE_ADMIN: [ROLE_ALLOWED_TO_SWITCH, ROLE_USER]
+        
+    acl:
+        connection: default        
+        
+    encoders:
+        #Symfony\Component\Security\Core\User\User: plaintext
+        #Manwin\Bundle\CustomerBundle\Entity\Customer: plaintext
+        Manwin\Bundle\CustomerBundle\Entity\Customer: 
+            id: manwin.password_encoder
+    
+    providers:
+        customers:
+#            users:
+#                hhamon: { password: secret, roles: [ROLE_ADMIN] }
+#                jsmith: { password: foobar, roles: ROLE_USER }
+            entity: 
+                class: ManwinCustomerBundle:Customer 
+                #property: username # we commented it because we use Customer repository now
+    
+    firewalls:
+        customer_login:
+            pattern: ^/customer/login$
+            security: false
+        customer_new:
+            pattern: ^/customer/new$
+            security: false
+            
+        customer_module:
+            pattern: ^/customer
+            switch_user: true
+            http_basic: ~
+            form_login:
+                login_path: /customer/login
+                check_path: /customer/auth
+                default_target_path: /customer/account
+            logout:
+                path: /customer/logout
+                target: /customer/login
+            
+    access_control:
+        - { path: ^/customer, roles: ROLE_USER}

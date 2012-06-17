@@ -1,0 +1,11 @@
+{% extends "ManwinTrainingBundle::layout.html.twig" %}
+
+{% block title -%}
+	{{ parent() }} to color page! {{ color|capitalize }}
+{%- endblock%}
+
+{% block content %}
+
+Our color is {{ color }}
+{% endblock %}
+

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+        <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+    	<div id="header">
+    	{% include '::navigation.html.twig' with {
+    		'id': 'menu_head'
+    		} only 
+    	%}
+    	</div>
+        {% block body %}{% endblock %}
+        
+    	<div id="footer">
+    	{%
+    		render "ManwinTrainingBundle:Default:counter" with {
+    		'foo' : 'bar'
+    		},
+    		{ 'standalone' : true}
+    	%}
+    	{% include '::navigation.html.twig' with {'id': 'menu_foot'} only %}
+    	</div>
+        
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>

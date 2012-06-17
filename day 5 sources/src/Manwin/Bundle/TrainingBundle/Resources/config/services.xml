@@ -1,0 +1,31 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <!--
+    <parameters>
+        <parameter key="manwin_training.example.class">Manwin\Bundle\TrainingBundle\Example</parameter>
+    </parameters>
+
+    <services>
+        <service id="manwin_training.example" class="%manwin_training.example.class%">
+            <argument type="service" id="service_id" />
+            <argument>plain_value</argument>
+            <argument>%parameter_name%</argument>
+        </service>
+    </services>
+    -->
+	
+    <parameters>
+        <parameter key="manwin_training.twig.text_extension.class">Manwin\Bundle\TrainingBundle\Twig\Extension\TextExtension</parameter>
+    </parameters>
+
+    <services>
+        <service id="manwin_training.twig.text_extension" class="%manwin_training.twig.text_extension.class%" public="false">
+            <tag name="twig.extension" />
+        </service>
+    </services>
+
+</container>

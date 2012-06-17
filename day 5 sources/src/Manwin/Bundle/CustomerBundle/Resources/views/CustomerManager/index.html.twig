@@ -1,0 +1,16 @@
+{% extends "::base.html.twig" %}
+
+{% block body %}
+
+<ul>
+    {% for customer in customers %}
+        <li>
+            {{ customer.firstName ~ ' ' ~ customer.lastName }}
+        </li>
+    {% else %}
+        <li>No customers matching your request</li>
+    {% endfor  %}    
+</ul>
+
+{% endblock %}
+

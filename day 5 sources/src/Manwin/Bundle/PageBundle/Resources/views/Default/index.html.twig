@@ -1,0 +1,27 @@
+{% extends "::base.html.twig" %}
+
+{% block title -%}
+    {{ 'About us'|trans }} 
+{%- endblock %} 
+
+{% set name = 'Hugo' %}
+
+{% block body %}
+    <h1>{{ 'About us'|trans }}</h1>
+    <p>{{ 
+        'My name is %name%'|trans({
+            '%name%':name
+            },
+            'about',
+            'fr'
+         ) 
+        }}
+    </p>
+    <p>
+        {% trans with {'%name%' : 'Fabien' } from 'about' into 'fr' %}
+            My name is %name%
+        {%  endtrans %}
+    </p>
+        
+
+{% endblock %}

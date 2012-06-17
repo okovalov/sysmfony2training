@@ -1,0 +1,31 @@
+ManwinPageBundle:
+    resource: "@ManwinPageBundle/Controller/"
+    type:     annotation
+    prefix:   /{_locale}
+    requirements:
+        _locale: en|fr
+
+ManwinCommentBundle:
+    resource: "@ManwinCommentBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+ManwinCacheBundle:
+    resource: "@ManwinCacheBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+ManwinCustomerBundle:
+    resource: "@ManwinCustomerBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+ManwinTrainingBundle:
+    resource: "@ManwinTrainingBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+# Internal routing configuration to handle ESI
+_internal:
+   resource: "@FrameworkBundle/Resources/config/routing/internal.xml"
+   prefix:   /_internal

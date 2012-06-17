@@ -1,0 +1,28 @@
+{% extends "ManwinTrainingBundle::layout.html.twig" %}
+
+{% block title -%}
+	{{ parent() }} to {{ name|capitalize }}'s personal page
+{%- endblock%}
+
+{% block content %}
+
+{{ 
+    paragraph('Put that string into a paragraph'|truncate(15), {
+        'class' : 'foobar'
+    }) 
+}}
+
+{{ my_global }}
+
+<p>
+	Hello <strong>{{ name }}</strong>!
+	<br/><br/>
+	you are on {{ url('greet', { 'name': name }) }}
+</p>
+
+<p>
+	also <a href="{{ path('greet', { 'name': 'Albert' }) }}">Greet Albert!</a> greet Albert!
+</p>
+
+{% endblock %}
+

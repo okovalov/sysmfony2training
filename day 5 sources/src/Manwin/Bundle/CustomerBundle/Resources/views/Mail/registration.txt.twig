@@ -1,0 +1,14 @@
+Hi {{ user.username }}!
+
+Thanks for registration to our website.
+Below are your personal information.
+
+Your password {{ user.password }}
+
+Your email: {{ user.email }}
+
+{% if user.birthdate -%}
+Your birthdate: {{ user.birthdate|date('d/m/Y') }}
+{%- endif %}
+
+The website team.
